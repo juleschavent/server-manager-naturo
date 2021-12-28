@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "systemes",
+  "info": {
+    "singularName": "systeme",
+    "pluralName": "systemes",
+    "displayName": "systeme",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "richtext",
+      "required": false
+    },
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "organes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::organe.organe",
+      "mappedBy": "systeme"
+    }
+  }
+}

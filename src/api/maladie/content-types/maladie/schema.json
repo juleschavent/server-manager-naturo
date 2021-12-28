@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "maladies",
+  "info": {
+    "singularName": "maladie",
+    "pluralName": "maladies",
+    "displayName": "maladie",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "richtext",
+      "required": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ]
+    },
+    "organes": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::organe.organe",
+      "inversedBy": "maladies"
+    },
+    "traitements": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::traitement.traitement",
+      "inversedBy": "maladies"
+    }
+  }
+}

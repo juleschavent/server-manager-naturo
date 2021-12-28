@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "organes",
+  "info": {
+    "singularName": "organe",
+    "pluralName": "organes",
+    "displayName": "organe",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "richtext",
+      "required": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ]
+    },
+    "systeme": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::systeme.systeme",
+      "inversedBy": "organes"
+    },
+    "maladies": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::maladie.maladie",
+      "mappedBy": "organes"
+    }
+  }
+}
